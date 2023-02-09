@@ -3,7 +3,7 @@ import randomWords from "random-words";
 import styles from "../CSS/home.module.css";
 
 const NUMB_OF_WORDS = 200;
-const SECONDS = 10;
+const SECONDS = 300;
 
 export default function Home() {
   const [words, setWords] = useState([]);
@@ -54,16 +54,16 @@ export default function Home() {
     }
   }
 
-  function handleKeyDown({ keyCode,key }) {
+  function handleKeyDown({ keyCode, key }) {
     if (keyCode === 32) {
       //32 keycode  for spacebar
       checkMatch();
       setCurrentInput("");
       setCurrentWordIndex(currentWordIndex + 1);
       setCurrentCharIndex(-1);
-    }else{
-        setCurrentCharIndex(currentcharIndex + 1);
-        setCurrentChar(key);
+    } else {
+      setCurrentCharIndex(currentcharIndex + 1);
+      setCurrentChar(key);
     }
   }
 
@@ -77,17 +77,20 @@ export default function Home() {
     }
   }
 
-  function getcharclass(wordIdx,charIdx,char){
-    if(wordIdx === currentWordIndex &&  charIdx === currentcharIndex && currentchar && status !== "finished"){
-        if(char === currentchar ){
-            return 'has-background-success'
-        }
-        else{
-            return 'has-background-danger'
-        }
-    }
-    else{
-        return " "
+  function getcharclass(wordIdx, charIdx, char) {
+    if (
+      wordIdx === currentWordIndex &&
+      charIdx === currentcharIndex &&
+      currentchar &&
+      status !== "finished"
+    ) {
+      if (char === currentchar) {
+        return "has-background-success";
+      } else {
+        return "has-background-danger";
+      }
+    } else {
+      return " ";
     }
   }
 
@@ -96,7 +99,10 @@ export default function Home() {
       <div className={styles.container}>
         <div className={styles.navbar}>
           <div className={styles.right}>
-            <img src="https://fakeimg.pl/50x50/" alt="" />
+            <img
+              src="https://www.readandspell.com/sites/default/files//blog/HowToImproveTypingSpeed_0.jpg"
+              alt=""
+            />
           </div>
           <div className={styles.mid}>
             <h1>Touch Typing Application</h1>
@@ -105,7 +111,7 @@ export default function Home() {
             <ul>
               <li>Login</li>
               <li>Signup</li>
-              <li>{countDown}</li>
+              <li>00:00:{countDown}</li>
             </ul>
           </div>
         </div>
@@ -125,14 +131,17 @@ export default function Home() {
             value="start"
             onClick={start}
           />
+          <p className={styles.start}>Click on start </p>
           {status == "started" && (
             <>
               <div className={styles.input3}>
                 {words.map((word, i) => (
-                  <span  key={i}>
+                  <span key={i}>
                     <span>
                       {word.split("").map((char, idx) => (
-                        <span className={getcharclass(i,idx,char)} key={idx}>{char}</span>
+                        <span className={getcharclass(i, idx, char)} key={idx}>
+                          {char}
+                        </span>
                       ))}
                     </span>
                     <span> </span>
