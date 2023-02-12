@@ -1,0 +1,32 @@
+.popup{
+    height: 40%;
+    width: 30%;
+    /* background-color: aliceblue; */
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    /* display: none; */
+}
+.popup .box{
+    background-color: rgb(89, 33, 33);
+    height: 100%;
+    width: auto;
+    position: relative;
+    color: rgb(255, 255, 255);
+    padding: 30px;
+}
+.popup .box h1{
+    font-size: x-large;
+    font-weight: bolder;
+    padding-bottom: 10px;
+}
+.popup .box ol{
+    margin-left: 10px;
+}
+.popup .box .close-btn button{
+    padding: 10px;
+    position: fixed;
+    bottom: 33%;
+    right: 53%;
+    cursor: pointer;
+}

@@ -94,6 +94,7 @@ export default function Home() {
     }
   }
 
+ 
   return (
     <div className={styles.section}>
       <div className={styles.container}>
@@ -109,9 +110,9 @@ export default function Home() {
           </div>
           <div className={styles.left}>
             <ul>
-              <li>Login</li>
-              <li>Signup</li>
-              <li>00:00:{countDown}</li>
+              {/* <li>Login</li>
+              <li>Signup</li> */}
+              <li> Timer : {countDown} Seconds</li>
             </ul>
           </div>
         </div>
